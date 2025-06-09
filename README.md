@@ -49,3 +49,7 @@ Materi lengkap tersedia di:
 ## 🌟 Harapan Kami
 
 Setelah menguasai pertemuan ini, teman-teman akan memiliki fondasi kuat dalam mengelola struktur database di Laravel 10. Dari setup koneksi sampai generate data dummy, semuanya dirancang agar aplikasimu scalable dan minim bug. Semoga teman-teman semakin percaya diri memanipulasi data dan siap membangun fitur‑fitur kompleks di sesi selanjutnya. Happy coding! 🚀
+
+
+### 🔗 Link File Postman
+(https://drive.google.com/file/d/1ywBpyN6BNVj5uAB0a_jU6ei6mRhFVMqt/view?usp=sharing)

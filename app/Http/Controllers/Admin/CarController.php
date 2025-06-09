@@ -10,9 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class CarController extends Controller
 {
-    /**
-     * Menyimpan mobil baru
-     */
+
    public function store(Request $request)
 {
     $validated = $request->validate([
@@ -29,7 +27,6 @@ class CarController extends Controller
         'category_id' => 'required|exists:categories,id'
     ]);
 
-    // Upload gambar utama
     if ($request->hasFile('imageUrl')) {
         $validated['imageUrl'] = $request->file('imageUrl')->store('cars', 'public');
     }
@@ -43,9 +40,7 @@ class CarController extends Controller
     ], 201);
 }
 
-    /**
-     * Memperbarui mobil
-     */
+
     public function update(Request $request, $id)
     {
         $car = Car::findOrFail($id);
@@ -64,9 +59,7 @@ class CarController extends Controller
             'category_id' => 'sometimes|exists:categories,id'
         ]);
 
-        // Update gambar jika ada
         if ($request->hasFile('imageUrl')) {
-            // Hapus gambar lama
             if ($car->imageUrl) {
                 Storage::disk('public')->delete($car->imageUrl);
             }
@@ -82,14 +75,11 @@ class CarController extends Controller
         ]);
     }
 
-    /**
-     * Menghapus mobil
-     */
+
     public function destroy($id)
     {
         $car = Car::findOrFail($id);
 
-        // Hapus gambar
         if ($car->imageUrl) {
             Storage::disk('public')->delete($car->imageUrl);
         }

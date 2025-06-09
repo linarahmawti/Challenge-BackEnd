@@ -10,8 +10,7 @@ use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
-    // 1. REGISTER (POST /api/register)
-    // Contoh register method yang benar
+
     public function register(Request $request)
     {
         $request->headers->set('Accept', 'application/json');
@@ -34,7 +33,6 @@ class AuthController extends Controller
         ], 201);
     }
 
-    // 2. LOGIN (POST /api/login)
     public function login(Request $request)
     {
         $request->validate([
@@ -60,7 +58,6 @@ class AuthController extends Controller
         ]);
     }
 
-    // 3. LOGOUT (POST /api/logout) - Butuh middleware auth
     public function logout(Request $request)
     {
         $request->user()->tokens()->delete();
@@ -71,7 +68,6 @@ class AuthController extends Controller
         ]);
     }
 
-    // 4. PROFILE (GET /api/profile) - Butuh middleware auth
     public function profile(Request $request)
     {
         return response()->json([

@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
-    // POST /api/bookings
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -31,7 +30,6 @@ class BookingController extends Controller
         ], 201);
     }
 
-    // GET /api/bookings
     public function index()
     {
         $bookings = Booking::with('car')

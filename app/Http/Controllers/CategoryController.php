@@ -8,16 +8,14 @@ use App\Http\Requests\StoreCategoryRequest;
 
 class CategoryController extends Controller
 {
-    // Menampilkan semua kategori
     public function index()
     {
         return response()->json(Category::all());
     }
 
-    // Menyimpan kategori baru
     public function store(StoreCategoryRequest $request)
     {
-        $validated = $request->validated();  // Validasi menggunakan StoreCategoryRequest
+        $validated = $request->validated();
         $category = Category::create($validated);
 
         return response()->json([
@@ -26,13 +24,11 @@ class CategoryController extends Controller
         ], 201);
     }
 
-    // Menampilkan detail kategori berdasarkan ID
     public function show($id)
     {
         return response()->json(Category::findOrFail($id));
     }
 
-    // Memperbarui data kategori
     public function update(Request $request, $id)
     {
         $category = Category::findOrFail($id);
@@ -40,7 +36,6 @@ class CategoryController extends Controller
         return response()->json(['message' => 'Kategori berhasil diperbarui', 'data' => $category]);
     }
 
-    // Menghapus data kategori
     public function destroy($id)
     {
         Category::findOrFail($id)->delete();

@@ -12,7 +12,6 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
-        //'name',
         'email',
         'password'
     ];
@@ -28,12 +27,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // Hapus semua method static yang menggunakan DB langsung
-    // Biarkan Eloquent menangani operasi database
 
-    /**
-     * Mendapatkan nama kolom untuk remember token
-     */
     public function getRememberTokenName()
     {
         return 'remember_token';

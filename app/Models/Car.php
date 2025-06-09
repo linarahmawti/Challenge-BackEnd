@@ -31,13 +31,11 @@ class Car extends Model
         'category_id' => 'integer'
     ];
 
-    // Relationship dengan Category
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    // Accessor untuk URL gambar lengkap
     public function getMainImageUrlAttribute()
     {
         if ($this->imageUrl) {
@@ -46,13 +44,11 @@ class Car extends Model
         return null;
     }
 
-    // Scope untuk status available
     public function scopeAvailable($query)
     {
         return $query->where('status', 'available');
     }
 
-    // Scope untuk status unavailable
     public function scopeUnavailable($query)
     {
         return $query->where('status', 'unavailable');
